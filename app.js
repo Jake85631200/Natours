@@ -8,6 +8,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
 const cookieParser = require("cookie-parser");
+const compression = require("compression");
 
 const AppError = require("./utils/appError");
 const globeErrorHandler = require("./controllers/errorController");
@@ -29,7 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // helmet: A collection of many smaller middleware that set HTTP headers.
 app.use(helmet({ contentSecurityPolicy: false }));
 
-console.log("NODE_ENV:", process.env.NODE_ENV);
+// console.log("NODE_ENV:", process.env.NODE_ENV);
 
 // Development logging
 if (process.env.NODE_ENV === "development") {
@@ -71,6 +72,9 @@ app.use(
     ],
   }),
 );
+
+// this will return a middleware, compress all the text that sent to clients, images not included.
+app.use(compression());
 
 // Test middleware
 app.use((req, res, next) => {

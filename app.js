@@ -55,7 +55,7 @@ app.use(
       defaultSrc: ["'self'"], // allowed source
       connectSrc: [
         "'self'",
-        "https://natours20240926-6141767af9ac.herokuapp.com", // allowed url
+        "https://natours20240926-6141767af9ac.herokuapp.com/api/v1/tours", // allowed url
       ],
     },
   }),

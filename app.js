@@ -49,7 +49,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Set security HTTP headers
 // helmet: A collection of many smaller middleware that set HTTP headers.
-app.use(helmet({ contentSecurityPolicy: false }));
+app.use(helmet());
 
 // app.use(
 //   helmet.contentSecurityPolicy({

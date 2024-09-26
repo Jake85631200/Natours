@@ -9,6 +9,7 @@ const xss = require("xss-clean");
 const hpp = require("hpp");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
+const cors = require("cors");
 
 const AppError = require("./utils/appError");
 const globeErrorHandler = require("./controllers/errorController");
@@ -27,6 +28,22 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
 // 2) GLOBAL MIDDLEWARES
+// Implement CORS
+app.use(cors());
+// Access-Control-Allow-Origin *
+
+// If we want to only allow specific URL to create request to this api:
+// app.use(
+//   cors({
+//     origin: "https://www.natours.com",
+//   }),
+// );
+
+// allow all method to request
+app.options("*", cors());
+// // allow /api/v1/tours/:id to request
+// app.options("/api/v1/tours/:id", cors());
+
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
 // Set security HTTP headers

@@ -44,8 +44,8 @@ process.on("unhandledRejection", (err) => {
 
 // SIGTERM event: When process receives SIGTERM, it will shutdown the system after current work done instead of shutting down instantly
 process.on("SIGTERM", () => {
-  console.log("SIGTERM RECEIVED. Shutting down after current work done.");
+  console.log("💣 SIGTERM RECEIVED. Shutting down after current work done.");
   server.close(() => {
-    console.log("Process terminated!");
+    console.log("💣 Process terminated!");
   });
 });

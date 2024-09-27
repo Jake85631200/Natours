@@ -49,18 +49,19 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Set security HTTP headers
 // helmet: A collection of many smaller middleware that set HTTP headers.
-// app.use(helmet())
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"], // allowed source
-      connectSrc: [
-        "'self'",
-        "https://natours20240926-6141767af9ac.herokuapp.com", // allowed url
-      ],
-    },
-  }),
-);
+app.use(helmet());
+
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     directives: {
+//       defaultSrc: ["'self'"], // allowed source
+//       connectSrc: [
+//         "'self'",
+//         "https://natours20240926-6141767af9ac.herokuapp.com", // allowed url
+//       ],
+//     },
+//   }),
+// );
 
 // console.log("NODE_ENV:", process.env.NODE_ENV);
 

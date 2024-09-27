@@ -49,7 +49,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Set security HTTP headers
 // helmet: A collection of many smaller middleware that set HTTP headers.
-app.use(helmet({ contentSecurityPolicy: false }));
+app.use(helmet());
+// app.use(helmet({ contentSecurityPolicy: false }));
 
 // app.use(
 //   helmet.contentSecurityPolicy({
@@ -95,7 +96,6 @@ app.use(mongoSanitize());
 // Data sanitization against XSS
 // Clean any user input form malicious HTML code, convert all these HTML symbols
 app.use(xss());
-
 
 // Prevent parameter pollution
 app.use(

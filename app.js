@@ -96,6 +96,7 @@ app.use(mongoSanitize());
 // Clean any user input form malicious HTML code, convert all these HTML symbols
 app.use(xss());
 
+
 // Prevent parameter pollution
 app.use(
   hpp({

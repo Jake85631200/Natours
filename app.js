@@ -59,7 +59,7 @@ app.use(
       defaultSrc: ["'self'"], // allowed source
       connectSrc: [
         "'self'",
-        "https://natours20240926-6141767af9ac.herokuapp.com", // allowed url
+        "https://natours20240927-919f1ebf30df.herokuapp.com", // allowed url
       ],
       scriptSrc: [
         "'self'", // 當前網域的腳本

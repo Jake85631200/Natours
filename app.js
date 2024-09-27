@@ -64,9 +64,9 @@ app.use(
       ],
       scriptSrc: [
         "'self'", // 當前網域的腳本
-        // "https://js.stripe.com", // 允許來自 Stripe 的腳本
+        "https://js.stripe.com", // 允許來自 Stripe 的腳本
       ],
-      frameSrc: ["'self'", "https://js.stripe.com"],
+      // frameSrc: ["'self'", "https://js.stripe.com"],
       imgSrc: ["'self'", "https://js.stripe.com"],
     },
   }),

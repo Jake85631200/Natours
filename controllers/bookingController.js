@@ -44,6 +44,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   });
 });
 
+
 // Because "success_url" created by getCheckoutSession() is a url with query, which is not secure at all, we need to redirect to the original url without queries
 // exports.createBookingCheckout = catchAsync(async (req, res, next) => {
 //   // This is only TEMPORARY because it's UNSECURE: everyone can make booking without paying

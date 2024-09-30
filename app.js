@@ -18,6 +18,7 @@ const userRouter = require("./routes/userRoute");
 const reviewRouter = require("./routes/reviewRoute");
 const viewRouter = require("./routes/viewRoute");
 const bookingRouter = require("./routes/bookingRoute");
+const { webhookCheckout } = require("./controllers/bookingController");
 
 const app = express();
 
@@ -86,7 +87,14 @@ const limiter = rateLimit({
 // Let all the route starts wit this
 app.use("/api", limiter);
 
-// Body parser, reading date from body into req.body
+// Why put webhookCheckout here: Stripe need the req.body in raw, not JSON
+app.post(
+  "/webhook-checkout",
+  express.raw({ type: "application/json" }),
+  webhookCheckout,
+);
+
+// Body parser, reading data from body into req.body
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use(cookieParser());
